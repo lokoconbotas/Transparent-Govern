@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
+/*@import url('https://fonts.googleapis.com/css?family=Roboto');*/
+/*variable para cambiar el color de la pagina*/
+:root {
+    --color-principal: rgb(219, 17, 56);
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Work Sans', sans-serif;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    background: rgba(219, 17, 56, 0.05);
+}
+.titulosTablas {
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+    height: 100px;
+}
+
+.tablas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mail {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    background-image: url(media/img/images.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    min-height: 100px;
+}
+
+.row {
+    margin: 10px;
+}
+
+.row-eq-heigth {
+    display: flex;
+    align-items: center;
+}
+
+
+
+.footer {
+    display: flex;
+    align-items: center;
+    /*    position: fixed;*/
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: var(--color-principal);
+    text-align: center;
+    color: white;
+}
+
+
+
+.titulos {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    color: white;
+    background: var(--color-principal);
+    text-align: center;
+}
+
+
+
+.separador {
+    height: 5px;
+    background: var(--color-principal);
+    border-radius: 5px;
+}
+
+.panel-heading {
+    background: var(--color-principal);
+    text-align: center;
+    height: 120px;
+    cursor: pointer;
+}
+
+.titulosAccordion {
+    color: white;
+    font-size: 120%;
+}
+
+.cont {
+    padding-top: 10px;
+    box-shadow: 0px 10px 40px 1px grey;
+    margin-bottom: 100px;
+    margin-top: 20px;
+    background: white;
+}
+
+thead {
+    background: var(--color-principal);
+    color: white;
+}
+
+
+.navbar {
+    background: var(--color-principal);
+    color: white;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+.navbar-default .navbar-nav>li>a {
+    color: white;
+}
+.nav>li>a {
+    color: white;
+}
+
+.dropdown-menu {
+    /*    color: white;*/
+    border: 1px solid var(--color-principal);
+    border-radius: 10px;
+
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.open>a {
+    background: white;
+    color: var(--color-principal);
+}
+
+.navbar-nav>.active>a:hover {
+    color: black;
+    background: green;
+}
+
+.text-muted {
+    color: #ffafaf;   
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background: white;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: rgba(219, 17, 56, 0.1);
+}
+
+a, a:focus, a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.table {
+    color: black;
+    box-shadow: 0px 10px 40px 1px grey;
+    font-size: 14px;
+}
+
+th.headerSortUp { 
+    background-image: url(../jquery/themes/blue/asc.gif); 
+    margin: 1px;
+    background-color: rgb(203, 73, 98); 
+} 
+
+th.headerSortDown { 
+    background-image: url(../jquery/themes/blue/desc.gif); 
+    /*    background-color: #e99eff; */
+}
+
+th.header { 
+    background-image: url(../jquery/themes/blue/bg.gif); 
+    cursor: pointer;
+    background-size: 40px;
+    font-weight: bold; 
+    background-repeat: no-repeat; 
+    background-position: center right; 
+    padding-left: 0px; 
+    border-right: 1px solid #dad9c7; 
+    margin-left: 1px;
+    z-index: 9999;
+    width: 200px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+.open {
+    background: white;
+    color: var(--color-principal);
+}
+
+legend {
+    border-bottom: 2px solid var(--color-principal);
+}
+
+.minitext {
+    font-size: 10px;
+    color: grey;
+}
+
+.dataTables_scroll {
+    color: black;
+    box-shadow: 0px 10px 40px 1px grey;
+    font-size: 14px;
+}
+
+.dataTables_info {
+    display: none;
+}
+
+#cboxOverlay {
+    background-color: var(--color-principal);
+}
+
+#modal {
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    padding:0px;
+    border: 3px solid var(--color-principal);
+    border-radius:40px;
+    background-color: white;
+    z-index: 1002;
+    text-align:center;
+    overflow: auto;
+}
+
+#modal>img {
+    /*    position: relative;*/
+    height: 90%;
+    width: 90%;
+}
+
+#fade {
+    /*    display: none;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 1001;
+    -moz-opacity: 0.9;
+    opacity: .90;
+    filter: alpha(opacity=90);
+}
+
+.jumbotron {
+    padding: 0;
+    margin-top: -20px;
+    background-image: url('/media/img/flag.jpg');
+    background-size: cover;
+    height: 100vh; /*same height as jumbotron */
+    text-align: center;
+    color: white;
+    text-shadow: #000 5px 5px 10px;
+}
+
+.bg {
+    margin: 0;
+    background:rgba(116, 11, 31, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.bg>p {
+    font-size: 40px;
+}
+.photo {
+    width: 50vh;
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+.btn a, .btn a:visited {
+    color: white;
+}
+
+.photo2 {
+    width: 40vh;
+}
+
+.smoothScroll {
+    color: white;
+    font-size: 25px;
+    display: block;
+}
+
+.esquinadiv {
+    position: relative;
+    min-width: 100%;
+}
+
+.esquinaimg {
+    position: fixed;
+    top: 60;
+    right: 0;
+    width: 30%;
+    height: auto;
+}
+
+#senate-data {
+    
+}

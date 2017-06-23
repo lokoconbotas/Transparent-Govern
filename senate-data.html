@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Senate</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--    Bootstrap-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
+		<link rel="stylesheet" href="/media/colorbox-master/example4/colorbox.css">
+	</head>
+	<body>
+		<div id="fade">
+		<div id="modal"><img src="media/img/ajax-loader-2.gif" id="loader"></div>
+		</div>
+		<div class="cont container">
+			<div class="row row-eq-heigth">
+				<!--Logo here-->
+
+				<div class="logo col-xs-12 col-sm-6 col-md-6">
+				</div>
+				<!--mail info here-->
+				<div class="mail hidden-xs col-sm-6 col-md-6">
+					<div class="glyphicon glyphicon-envelope"></div>
+					<span><a href="mailto:info@tgif.net">info@tgif.com</a></span> 
+				</div>
+			</div>
+
+			<!--navbar-->
+			<nav class="navbar navbar-default navbar-fixed-top">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="index.html">-UBIQUM PROJECT-</a>
+					</div>
+					<div id="navbar" class="collapse navbar-collapse">
+						<ul class="nav navbar-nav">
+							<li><a href="index.html">Home</a></li>
+							<li class="dropdown active">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Congress 113 <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="house-data.html">House</a></li>
+									<li><a href="#">Senate</a></li>
+									<li role="separator" class="divider"></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Attendance<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="house-att-stats.html">House</a></li>
+									<li><a href="senate-att-stats.html">Senate</a></li>
+									<li role="separator" class="divider"></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Party Loyalty<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="house-party-loyalty-stats.html">House</a></li>
+									<li><a href="senate-party-loyalty-stats.html">Senate</a></li>
+									<li role="separator" class="divider"></li>
+								</ul>
+							</li>
+						</ul>
+					</div><!--/.nav-collapse -->
+				</div>
+			</nav>
+			<!--aquí acaba la navbar-->
+
+
+			<div class="titulos row"><h2>Senators</h2></div>
+			<div class="row">
+				<p>First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution. Each state is represented by two senators, regardless of population, who serve staggered six-year terms. The Senate has several exclusive powers not granted to the House, including consenting to treaties as a precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached by the House.</p>
+			</div>
+
+			<div class="row form-group">
+				<form class="col-xs-12 col-md-5">
+					<fieldset>
+						<legend>Filter by Party:</legend>
+						<!--                    <label for="party">Filter by Party : </label>-->
+						<label class="checkbox-inline"><input id="party1" type="checkbox" name="party" value="R">Republican</label>
+						<label class="checkbox-inline"><input id="party2" type="checkbox" name="party" value="D">Democrat</label>
+						<label class="checkbox-inline"><input id="party3" type="checkbox" name="party" value="I">Independent</label>
+					</fieldset>
+				</form>
+				<form class="col-xs-12 col-md-3" method="">
+					<fieldset>
+						<legend>Filter by State:</legend>
+						<!--                    <label for="state">Filter by State:</label>-->
+						<select name="state" id="dropdown_states">
+							<option value="All">-- Show All --</option>
+
+						</select>
+					</fieldset>
+				</form>
+				<form class="col-xs-12 col-md-4">
+					<fieldset>
+						<legend>Use Data Source:</legend>
+						<!--                        <label for="party">Use Data Source : </label>-->
+						<label class="checkbox-inline"><input id="api1" type="checkbox" name="api" value="sun" checked>NYTimes</label>
+						<label class="checkbox-inline"><input id="api2" type="checkbox" name="api" value="nyt">Sun Light Lab</label>
+					</fieldset>
+				</form>
+			</div>
+
+
+			<div class="separador row"></div>
+			<!--aquí empiezan las tablas-->
+			<div class="row">
+				<!--tabla1-->
+				<div class="col-sm-12">
+					<div class="titulosTablas">
+						<h2>Senators Data Table</h2>
+					</div>
+					<div class="tablas">
+						<center>
+							<div id="numeros"></div>
+							<table class="table table-responsive table-hover" id="senate-data">
+
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Party</th>
+										<th>State</th>
+										<th data-api="nyt">Years in Office</th>
+										<th data-api="nyt">% Votes w/ Party</th>
+										<th data-api ="sun">Birthday</th>
+										<th>API</th>
+
+									</tr>
+								</thead>
+
+								<tbody id="tablebody">
+
+
+								</tbody>
+
+							</table>
+						</center>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="footer">
+			<div class="container">
+				<p class="text-muted">&copy;2016. Tgif. | All Rigths Reserved</p>
+			</div>
+		</footer>
+
+
+		<!--        <script src="media/js/sunlight-senate.js"></script>-->
+		<script src="media/js/NYT-congress-113-senate.js"> </script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
+		<script src="media/colorbox-master/jquery.colorbox-min.js"></script>
+<!--        <script src="media/js/senate-data.js"></script>-->
+		<script src="media/js/senate-new.js"></script>
+	</body>
+</html>

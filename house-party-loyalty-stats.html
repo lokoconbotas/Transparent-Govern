@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>House Party Loyalty</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--    Bootstrap-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="fade">
+        <div id="modal"><img src="media/img/ajax-loader-2.gif" id="loader"></div>
+        </div>
+        <div class="cont container">
+            <div class="row row-eq-heigth">
+                <!--Logo here-->
+
+                <div class="logo col-xs-12 col-sm-6 col-md-6">
+                </div>
+                <!--mail info here-->
+                <div class="mail hidden-xs col-sm-6 col-md-6">
+                    <div class="glyphicon glyphicon-envelope"></div>
+                    <span><a href="mailto:info@tgif.net">info@tgif.com</a></span>
+                </div>
+            </div>
+
+            <!--navbar-->
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html">-UBIQUM PROJECT-</a>
+                    </div>
+                    <div id="navbar" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="index.html">Home</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Congress 113 <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="house-data.html">House</a></li>
+                                    <li><a href="senate-data.html">Senate</a></li>
+                                    <li role="separator" class="divider"></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Attendance<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="house-att-stats.html">House</a></li>
+                                    <li><a href="senate-att-stats.html">Senate</a></li>
+                                    <li role="separator" class="divider"></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Party Loyalty<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">House</a></li>
+                                    <li><a href="senate-party-loyalty-stats.html">Senate</a></li>
+                                    <li role="separator" class="divider"></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </nav>
+            <!--aquí acaba la navbar-->
+
+
+            <div class="titulos row"><h2>House Party Loyalty</h2></div>
+            <div class="row">
+                <p>Those who consider themselves to be strong partisans, strong Democrats and strong Republicans respectively, tend to be the most faithful in voting for their party's nominee for office and legislation that backs their party's agenda.</p>
+            </div>
+
+
+            <div class="separador row"></div>
+            <!--aquí empiezan las tablas-->
+            <div class="row">
+                <!--tabla1-->
+                <div class="col-sm-12 col-md-4">
+                    <div class="titulosTablas">
+                        <h2>House at a glance</h2>
+                    </div>
+                    <div class="tablas">
+                        <center>
+                            <table class="table table-hover table-responsive table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Party</th>
+                                        <th>Number of Reps</th>
+                                        <th>% Voted with Prty</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Republican</td>
+                                        <td id="numR">--</td>
+                                        <td id="avgR">--</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Democrat</td>
+                                        <td id="numD">--</td>
+                                        <td id="avgD">--</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Independent</td>
+                                        <td id="numI">--</td>
+                                        <td id="avgI">--</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </center>
+                    </div>
+                    <canvas class="table" id="myChart" width="100" height="100"></canvas>
+                </div>
+
+                <!--tabla2-->
+                <div class="col-sm-12 col-md-4">
+                    <div class="titulosTablas">
+                        <h2>Least Loyal (Bottom 10% Party)</h2>
+                    </div>
+                    <div class="tablas">
+                        <center>
+                            <table id="tabla1" class="table table-hover table-responsive table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Votes w/ Party</th>
+                                        <th>% Votes</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="minVotesTable">
+
+                                </tbody>
+                            </table>
+                        </center>
+                    </div>
+                </div>
+
+                <!--tabla3-->
+                <div class="col-sm-12 col-md-4">
+                    <div class="titulosTablas">
+                        <h2>Most Loyale (Top 10% Party)</h2>
+                    </div>
+                    <div class="tablas">
+                        <center>
+                            <table id="tabla2" class="table table-hover table-responsive table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Votes w/ Party</th>
+                                        <th>% Votes</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="maxVotesTable">
+
+                                </tbody>
+                            </table>
+                        </center>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted">&copy;2016. Tgif. | All Rigths Reserved</p>
+            </div>
+        </footer>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
+        <script src="media/js/NYT-congress-113-house.js"></script>
+        <script src="media/js/statistics.js"></script>
+    </body>
+</html>
